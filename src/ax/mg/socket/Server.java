@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.*;
 
 public class Server {
     public static void main(String[] args) throws IOException {
@@ -16,7 +17,39 @@ public class Server {
         PrintWriter exit = new PrintWriter(socketClient.getOutputStream(), true);
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
 
-        String inputLine;
+        String inputLine = null;
+
+        while ((inputLine = entrada.readLine()) != null) {
+
+            if (inputLine.equalsIgnoreCase("Dame una hora")) {
+
+                exit.println(new Date().toString());
+
+            } else if (inputLine.equalsIgnoreCase("Dime un Artists")) {
+
+                List<String> Artists = Arrays.asList("Luis Miguel Luis Miguel", "Juan Gabriel", "Bereiz");
+                exit.println(Artists.get(new Random().nextInt(Artists.size())));
+
+            } else if (inputLine.equalsIgnoreCase("Dame un number random")) {
+
+                exit.println(new Random().nextInt());
+
+            } else if (inputLine.equalsIgnoreCase("Salir")) {
+
+                break;
+
+            } else {
+
+                System.out.println("No entendi el mensaje");
+
+            }
+
+        }
+
+        entrada.close();
+        exit.close();
+        socketClient.close();
+        serverSocket.close();
 
     }
 }
