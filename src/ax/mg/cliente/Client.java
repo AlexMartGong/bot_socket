@@ -1,5 +1,6 @@
 package ax.mg.cliente;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -15,5 +16,17 @@ public class Client {
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
         String userInput;
+
+        while (true) {
+            userInput = JOptionPane.showInputDialog(null, "Message");
+            if (userInput == null || userInput.equalsIgnoreCase("Salir")){
+                break;
+            }
+            exit.println(userInput);
+            System.out.println("Respuesta del Server: " + entrada.readLine());
+        }
+        entrada.close();
+        exit.close();
+        socket.close();
     }
 }

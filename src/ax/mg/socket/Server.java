@@ -17,7 +17,7 @@ public class Server {
         PrintWriter exit = new PrintWriter(socketClient.getOutputStream(), true);
         BufferedReader entrada = new BufferedReader(new InputStreamReader(socketClient.getInputStream()));
 
-        String inputLine = null;
+        String inputLine;
 
         while ((inputLine = entrada.readLine()) != null) {
 
