@@ -36,11 +36,12 @@ public class Server {
 
             } else if (inputLine.equalsIgnoreCase("Salir")) {
 
+                exit.println("Exit");
                 break;
 
             } else {
 
-                System.out.println("No entendi el mensaje");
+                exit.println("No entendi el mensaje");
 
             }
 
