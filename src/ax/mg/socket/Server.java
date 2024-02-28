@@ -27,7 +27,7 @@ public class Server {
 
             } else if (inputLine.equalsIgnoreCase("Dime un Artists")) {
 
-                List<String> Artists = Arrays.asList("Luis Miguel Luis Miguel", "Juan Gabriel", "Bereiz");
+                List<String> Artists = Arrays.asList("Luis Miguel", "Juan Gabriel", "Bereiz");
                 exit.println(Artists.get(new Random().nextInt(Artists.size())));
 
             } else if (inputLine.equalsIgnoreCase("Dame un number random")) {
